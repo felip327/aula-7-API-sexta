@@ -1,279 +1,204 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
-
-
-
+<html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Haruy Sushi - O verdadeiro sabor japonês</title>
-
+    <title>Haruy Sushi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-
-
+    <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/apple/81/sushi_1f363.png">
     <script>
-
         tailwind.config = {
-
             theme: {
-
                 extend: {
-
                     fontFamily: {
-
-                        'barlow': ['Barlow', 'sans-serif'],
-
+                        barlow: ['Barlow', 'sans-serif'],
                     },
-
                     colors: {
-
-                        primary: '#ca3c3f',
-
-                        dark: '#222222',
-
-                        muted: '#999999',
-
-                        footer: '#333333',
-
-                    },
-
-                },
-
-            },
-
+                        primary: '#ca3c3f'
+                    }
+                }
+            }
         }
-
     </script>
-
 </head>
 
+<body class="font-barlow text-gray-800">
 
+    <!-- ================= HEADER ================= -->
+    <header class="flex items-center justify-between px-6 mt-[5vh]">
 
-<body class="text-[#222222] overflow-x-hidden m-0 w-screen">
+        <figure>
+            <img src="./assets/images/logo.png" alt="Logo Haruy Sushi" class="w-[30vw] max-w-[160px]">
+        </figure>
 
+        <!-- Botão hamburguer -->
+        <button id="menuBtn" class="md:hidden text-3xl">
+            ☰
+        </button>
 
-
-    <header class="w-full bg-white shadow-sm py-4 px-6 sticky top-0 z-50">
-
-        <div class="container mx-auto flex justify-between items-center">
-
-
-
-            <h1 class="max-w-[150px] md:max-w-[200px]">
-
-                <img src="./assets/images/logo.png" alt="Haruy Sushi" class="w-full">
-
-            </h1>
-
-
-
-            <nav class="hidden md:block">
-
-                <ul class="flex space-x-8 font-bold text-sm uppercase tracking-wider">
-
-                    <li><a href="#cardapio" class="hover:text-[#ca4c3f] transition-colors">Cardápio</a></li>
-
-                    <li><a href="#" class="hover:text-[#ca4c3f] transition-colors">Sobre</a></li>
-
-                    <li><a href="#" class="hover:text-[#ca4c3f] transition-colors">Contato</a></li>
-
-                </ul>
-
-            </nav>
-
-
-
-            <button id="menu-toggle" class="md:hidden text-[#333333] focus:outline-none p-2" aria-label="Abrir Menu">
-
-                <svg id="hamburger-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-
-                    xmlns="http://www.w3.org/2000/svg">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-
-                    </path>
-
-                </svg>
-
-            </button>
-
-        </div>
-
-
-
-        <nav id="mobile-menu" class="hidden md:hidden w-full pt-4 pb-2 border-t mt-4 transition-all duration-300">
-
-            <ul class="flex flex-col space-y-4 font-bold text-center uppercase">
-
-                <li><a href="#cardapio" class="block py-2 hover:bg-gray-50 text-[#ca4c3f]">Cardápio</a></li>
-
-                <li><a href="#" class="block py-2 hover:bg-gray-50">Sobre</a></li>
-
-                <li><a href="#" class="block py-2 hover:bg-gray-50">Contato</a></li>
-
+        <!-- Menu Desktop -->
+        <nav class="hidden md:block">
+            <ul class="flex gap-8 text-lg">
+                <li><a href="#cardapio" class="hover:text-primary transition font-semibold">Cardápio</a></li>
+                <li><a href="#contato" class="hover:text-primary transition font-semibold">Contato</a></li>
             </ul>
-
         </nav>
 
     </header>
 
+    <!-- Menu Mobile -->
+    <div id="mobileMenu"
+        class="fixed top-0 right-[-100%] w-[70%] h-full bg-white shadow-lg transition-all duration-300 p-8 md:hidden z-50">
 
+        <button id="closeBtn" class="text-2xl mb-6">
+            ✕
+        </button>
 
-    <main>
+        <ul class="flex flex-col gap-6 text-lg">
+            <li><a href="#cardapio" class="hover:text-primary">Cardápio</a></li>
+            <li><a href="#contato" class="hover:text-primary">Contato</a></li>
+        </ul>
 
-        <section
+    </div>
 
-            class="flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 py-12 md:py-20 max-w-7xl mx-auto gap-8">
+    <!-- ================= BANNER ================= -->
+    <section class="text-center p-8">
 
-            <div class="w-full md:w-1/2">
+        <div class="md:flex md:items-center md:justify-center md:gap-10">
 
-                <p class="text-3xl md:text-6xl font-semibold leading-tight mb-6">O verdadeiro sabor da cozinha japonesa
+            <article class="md:w-[45%]">
 
-                </p>
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                    O verdadeiro sabor da cozinha japonesa
+                </h1>
 
-                <a class="inline-block border border-[#333333] rounded-2xl px-8 py-5 text-xl font-medium hover:bg-[#333333] hover:text-white transition-all"
-
-                    href="#cardapio">
-
-                    Veja nosso Cardápio
-
+                <a href="#cardapio"
+                    class="inline-block mt-4 px-8 py-4 border border-gray-800 rounded-[3rem] text-lg min-h-[48px] hover:bg-primary hover:text-white transition">
+                    Veja o Cardápio
                 </a>
 
-            </div>
+            </article>
 
-            <div class="w-full md:w-1/2 flex justify-center">
+            <figure class="md:w-[45%] mt-6 md:mt-0">
+                <img src="./assets/images/banner.png" alt="Prato japonês" class="w-[90%] mx-auto">
+            </figure>
 
-                <img src="./assets/images/banner.png" alt="Prato de sushi variado Haruy Sushi"
+        </div>
 
-                    class="w-[90%] max-w-[500px]">
+    </section>
 
-            </div>
+    <!-- ================= CARDÁPIO ================= -->
+    <section id="cardapio" class="max-w-[90vw] mx-auto mt-[5vh] p-8">
 
-        </section>
+        <h2 class="text-3xl font-bold text-center mb-8">
+            Cardápio
+        </h2>
 
-
-
-        <section class="container mx-auto max-w-[980px] mt-24 px-4 py-12 border-t border-dashed border-gray-400"
-
-            id="cardapio">
-
-
-
-            <h2 class="text-center text-4xl font-bold mb-12 uppercase tracking-wide">Cardápio</h2>
-
+        <!-- menu categoria inicio-->
             <nav id="nav-categorias" class="overflow-x-auto whitespace-nowrap snap-x flex gap-2 mt-6 pb-1">
                 <div class="animate-pulse flex gap-2">
                     <div class="h-8 w-20 bg-gray rounded-full"></div>
                     <div class="h-8 w-20 bg-gray rounded-full"></div>
                     <div class="h-8 w-20 bg-gray rounded-full"></div>
                 </div>
-            </nav>
 
-            <!-- meu categoria fim -->
-            <!-- produto inicio -->
+            </nav>
+        <!--menu categoria fim-->       
+        <!--produto inicio-->
             <div id="produtos-container" class="mt-8">
-                <div id="categoria-titulo" class="text-left text-dark font-extrabold text-[22px mb-4]">
-                    Iniciando...
+                <div id="categorias-titulo" class="text-left text-dark font-extrabold text-[22px] mb-4">
+                    iniciando...
                 </div>
                 <div id="lista-produtos" class="grid grid-cols-2 gap-4">
-                    <!-- os produtos serão injetados aqui pelo backend -->
+
                 </div>
             </div>
-            <!-- produtos fim -->
-           
+        <!--produto fim-->
 
-
-
-        </section>
-
-    </main>
+    </section>
 
     <script>
-        const API_URL ='https://aula-7-backend-vercel-six.vercel.app/api';
+        const API_URL = 'https://aula-7-backend-vercel-six.vercel.app/api';
         const navCategorias = document.getElementById('nav-categorias');
         const listaProdutos = document.getElementById('lista-produtos');
         const categoriaTitulo = document.getElementById('categorias-titulo');
         let categoriasData = [];
-        let categoriaAtivaId = null;
+        let categoriasAtivaId = null;
 
         async function carregarCategorias() {
-            try {
+            try {   
                 const response = await fetch(`${API_URL}/categorias`);
                 categoriasData = await response.json();
                 renderizarBotoesCategorias();
-                //seleciona a 1º categoria automatico
-                if(categoriasData.length > 0) {
-                    selecionarCategorias(categoriasData[0].id, categoriasData[0].nome);
+                if (categoriasData.length > 0) {
+                    selecionarCategoria(categoriasData[0].id, categoriasData[0].nome);
                 }
-            } catch (error) {
-                console.error('Erro ao carregar categorias:', error);
+            }catch (error) {
+                console.error('Error ao carregar as categorias:', error);
                 navCategorias.innerHTML = '<p class="text-red-500">Erro ao carregar menu.</p>'
             }
         }
 
-
-        //função para renderizar botões de menu
-        function renderizarBotoesCategorias() {
+        function renderizarBotoesCategorias(){
             navCategorias.innerHTML = '';
             categoriasData.forEach(cat => {
-                const btn = document.createElement('button');
-                    btn.className = `snap-start px-4 py-4 py-1 rounded-full font-bold text-sm transition-all duration-150 cursor-pointer flex-shrink-0 btn-cat`
+                const btn = document.createElement('button')
+                    btn.className = `snap-start px-4 py-4 py-1 rounded-full font-bold text-sm transition-all duration-150 cursor-pointer flex-shrink-0 btn-cat`;
                     btn.innerText = cat.nome;
-                    btn.onclick = () => selecionarCategorias(cat.id, cat.nome);
+                    btn.onclick = () => selecionarCategoria(cat.id, cat.nome);
                     btn.dataset.id = cat.id;
-                    navCategotias.id = cat.id;
+                    navCategorias.appendChild(btn);
             });
         }
 
 
         async function selecionarCategoria(id, nome) {
-            categoriaAtivaId = id;
-            categoriaTitulo.innerText = nome;
+            categoriasAtivaId = id;
+            categoriaTitulo.innerHTML = nome;
             const botoes = document.querySelectorAll('.btn-cat');
             botoes.forEach(btn => {
                 if (parseInt(btn.dataset.id) === id) {
-                    btn.classList.add('bg-primary', 'text-white');
+                    btn.classList.add('bg-primary', 'text-white')
                     btn.classList.remove('bg-[#ebebeb]', 'text-dark')
                 } else {
                     btn.classList.remove('bg-primary', 'text-white');
-                    btn.clssList.add('bg-[#ebebeb]', 'text-dark');
+                    btn.classList.add('bg-[#ebebeb]', 'text-dark');
                 }
             });
             carregarProdutos(id);
         }
+
+        async function carregarProdutos(categoriaId) {
+            listaProdutos.innerHTML = `
+            <div class="col-span-2 py-10 flex justify-center">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+            </div>
+            `;
+            try{
+                const response = await fetch(`${API_URL}/produtos?categoriaId=${categoriaId}`);
+                const produtos = await response.json();
+                renderizarProdutos(produtos);
+            }catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                listaProdutos.innerHTML = '<p class="col-span-2 text-red-500">Erro ao carregar produtos.</p>';
+            }
+        }
+
+        carregarCategorias();
     </script>
 
-    <footer class="mt-24 bg-[#333333] text-white p-12 text-center">
-
-        <h3 class="text-2xl font-bold mb-4">Haruy Sushi</h3>
-
-        <address class="not-italic text-sm text-gray-300 space-y-2">
-
-            <p>Rua Prof. Toledo, 500, Centro - Sorocaba</p>
-
-            <p>Whatsapp: (15) 98765-4321</p>
-
-        </address>
-
-        <p class="mt-6"><small class="text-gray-400">Aberto todos os dias das 14h às 23h</small></p>
-
+    <!-- ================= FOOTER ================= -->
+   <footer class="mt-24 text-center py-12 px-4 text-[0.875rem] text-white bg-[#333333]">
+        <h3 class="text-lg font-bold mb-2">Haruy Sushi</h3>
+        <p>📍 Rua Prof. Toledo, 500, centro - Sorocaba</p>
+        <p>📞 Whatsapp: (15) 99833-5768</p>
+        <p>🕛 Aberto todos os dias das 14h às 23h</p>
     </footer>
 
-
-
-    <a href="https://wa.me/5515987654321" class="fixed bottom-5 right-5 z-50 transition-transform hover:scale-110"
-
-        target="_blank">
-
-        <img src="./assets/images/whatsapp.png" alt="WhatsApp" class="h-14 w-14">
-
+    <a href="https://wa.me/5515991456699" target="_blank" class="fixed right-5 bottom-5">
+        <img src="./assets/images/whatsapp.png" alt="link-whatsapp" class="h-[3.25rem]">
     </a>
 
     <!-- MODAL DE DETALHES DO PRODUTO -->
@@ -314,7 +239,8 @@
             </div>
         </div>
     </div>
-                    <!-- RODAPÉ CARRINHO FIXO (Abre Modal) -->
+
+    <!-- RODAPÉ CARRINHO FIXO (Abre Modal) -->
     <div id="carrinho-footer"
         class="fixed bottom-0 left-0 w-full bg-primary text-white p-4 z-50 shadow-[0_-4px_6px_rgba(0,0,0,0.1)] transform translate-y-full transition-transform duration-300 flex justify-between items-center cursor-pointer"
         onclick="abrirModalCarrinho()">
@@ -363,150 +289,85 @@
     </div>
 
 
+    <!-- script menu hamburguer -->
     <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
 
-        const menuToggle = document.getElementById('menu-toggle');
-
-        const mobileMenu = document.getElementById('mobile-menu');
-
-
-
-        menuToggle.addEventListener('click', () => {
-
-            mobileMenu.classList.toggle('hidden');
-
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.style.right = "0";
         });
 
+        closeBtn.addEventListener("click", () => {
+            mobileMenu.style.right = "-100%";
+        });
     </script>
 
-
-
+    <!-- script botao categoria -->
     <script>
-
         const botoes = document.querySelectorAll('.btn-cat');
-
         const conteudos = document.querySelectorAll('.categoria-conteudo');
 
-       
-
-        function mudarCategoria(cat) {
-
+        function mudarCategoria(cat){
+            //mostra apenas a categoria seleconada
             conteudos.forEach(div => {
-
                 div.id === 'cat-' + cat
-
                 ? div.classList.remove('hidden')
-
                 : div.classList.add('hidden');
-
             });
-
+            //atualiza estilo do botao ativo
             botoes.forEach(btn => {
-
                 if (btn.dataset.cat === cat) {
-
                     btn.classList.add('bg-primary', 'text-white');
-
                     btn.classList.remove('bg-[#ebebeb]', 'text-dark');
-
-                } else {
-
+                }else {
                     btn.classList.remove('bg-primary', 'text-white');
-
                     btn.classList.add('bg-[#ebebeb]', 'text-dark');
-
                 }
-
-               
-
             });
-
         }
 
-        // botoes.forEach(btn => {
-
-        //     btn.addEventListener('touchstart', () => {
-
-        //         btn.classList.add('scale-95');
-
-        //         mudarCategoria(btn.dataset.cat);
-
-        //     });
-
-        //     btn.addEventListener('touchend', () => {
-
-        //         btn.classList.remove('scale-95');
-
-        //     });
-
-        //      btn.addEventListener('click', () => {
-
-        //         mudarCategoria(btn.dataset.cat);
-
-        //     });
-
-        // });
-
-
-
-
-
+        //ativa scroll suave para links internos
         let startX = 0;
-
         let startY = 0;
 
-
-
+        //evento de cada botao
         botoes.forEach(btn => {
-
-            btn.addEventListener('touchstart', (e) =>{
-
+            //touchstart é disparado assim que o dedo toca a tela
+            btn.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
-
                 startY = e.touches[0].clientY;
-
+                //aplica class tailwind para efeito de clique
                 btn.classList.add('scale-95', 'opacity-80');
-
             });
-
+            //touchend quando tira o dedo da tela
             btn.addEventListener('touchend', (e) => {
-
+                //remove efeito visual
                 btn.classList.remove('scale-95', 'opacity-80');
-
+                //ultima posição do dedo antes de levantar
                 const endX = e.changedTouches[0].clientX;
-
                 const endY = e.changedTouches[0].clientY;
-
+                //calcula distancia percorrida pelo dedo em pixels
                 const deltaX = Math.abs(endX - startX);
-
                 const deltaY = Math.abs(endY - startY);
-
+                //logica matematica se moveu menos de 10px = clique intencional
                 if (deltaX < 10 && deltaY < 10) {
-
-                    mudarCategoria(btn.dataset.cat);
-
+                    mudarCategoria(btn.database.cat);
                 }
-
             });
-
+            //touchcancel se o celular aparecer uma ligação ou notificação popup
             btn.addEventListener('touchcancel', () => {
-
                 btn.classList.remove('scale-95', 'opacity-80');
-
             });
-
+            //click para usuarios desktop
             btn.addEventListener('click', () => {
-
                 mudarCategoria(btn.dataset.cat);
-                
-
             });
-
         });
 
-        //LÓGICA DO CARRINHO, LOCALSTORAGE E APIS
-        //modelo detalhes do produto
-
+        //logica do carrinho, loclstorage e apis
+        //modal detalhes do produto
 
         const modalDetalhes = document.getElementById('detalhes-modal');
         const modalDetalhesContent = document.getElementById('detalhes-modal-content');
@@ -531,7 +392,7 @@
         }
 
         //fecha o modal detalhes do produto
-        function fecharModalDetalhes(){
+        function fecharModalDetalhes() {
             modalDetalhesContent.classList.remove('scale-100');
             modalDetalhesContent.classList.add('scale-95');
             setTimeout(() => {
@@ -544,31 +405,30 @@
         let carrinho = [];
         //elementos do DOM
         const carrinhoFooter = document.getElementById('carrinho-footer');
-        const carrinhoTotalSpan = document.getElementById ('carrinho-total');
+        const carrinhoTotalSpan = document.getElementById('carrinho-total');
         //elementos do modal
-        const modal= document.getElementById('carrinho-modal');
+        const modal = document.getElementById('carrinho-modal');
         const modalContent = document.getElementById('carrinho-modal-content');
         const itensContainer = document.getElementById('carrinho-itens-container');
         const modalTotalSpan = document.getElementById('modal-carrinho-total');
-        //verifica se o carrinho já tem itens salvos no localstorage
-        function inicializarCarrinho(){
-            const carrinhoSalvo = localStorage.getItem('haruy_carrinho');
-            if (carrinhoSalvo){
-                //se existe algo salvo converte de volta para array e atualiza o carrinho
+        //verifica se o carrinho ja tem itens salvos no localstorage
+        function inicilarCarrinho() {
+            const carrinhoSalvo = localStorge.getItem('haruy_carrinho');
+            if (carrinhoSalvo) {
+                //se existir algo salvo converte de volta para array e atualiza o carrinho
                 carrinho = JSON.parse(carrinhoSalvo);
                 atualizarInterfaceCart();
-
             }
         }
-
+        
         //adicionar ao carrinho
-        function adicionarItem(id,nome,preco){
+        function adicionarItem(id, nome, preco){
             if (navigator.vibrate){
                 navigator.vibrate(200);
             }
             const index = carrinho.findIndex(item => item.id === id);
 
-            if (index !== -1){
+            if (index !== -1) {
                 carrinho[index].quantidade += 1;
             }else{
                 carrinho.push({
@@ -581,13 +441,14 @@
             atualizarCarrinho();
         }
 
-        //função modal abrir e fechar do carrinho
-        function abrirModalCarrinho (){
+        //funcao modal abrir e fechar do carrinho
+        function abrirModalCarrinho() {
             modal.classList.remove('opacity-0', 'pointer-events-none');
             setTimeout(() => {
                 modalContent.classList.remove('translate-y-full', 'scale-95');
             }, 10);
         }
+
         function fecharModalCarrinho(){
             modalContent.classList.add('translate-y-full', 'scale-95');
             setTimeout(() => {
@@ -595,32 +456,32 @@
             }, 300);
         }
 
-        //controles dentro do modal do carrinho (aumentar, diminuir,remover itens)
+        //controles dentro do modal do carrinho (aumentar, diminuir, remover itens)
         //controle de (+ / -) quantidade
-        function aumentarQuantidade(id){
+        function aumentarQuantidade(id) {
             const index = carrinho.findIndex(item => item.id === id);
-            if (index !== -1){
+            if (index !== -1) {
                 carrinho[index].quantidade += 1;
                 atualizarCarrinho();
                 //efeito de vibração para feedback tátil
                 if (navigator.vibrate) navigator.vibrate(50);
             }
         }
-        
-        function diminuirQuantidade(id){
-           const index = carrinho.findIndex(item => item.id === id);
-           if (index !== -1){
-            if (carrinho[index].quantidade>1){
-                carrinho [index].quantidade -= 1;
-            }else{
-                carrinho.splice(index, 1);
-                if (carrinho.length === 0){
-                    fecharModalCarrinho();
+
+        function diminuirQuantidade(id) {
+            const index = carrinho.findIndex(item => item.id === id);
+            if (index !== -1) {
+                if (carrinho[index].quantidade > 1) {
+                    carrinho[index].quantidade -= 1;
+                }else {
+                    carrinho.splice(index, 1);
+                    if (carrinho.length === 0) {
+                        fecharModalCarrinho();
+                    }
                 }
+                atualizarCarrinho();
+                if(navigator.vibrate) navigator.vibrate(50);
             }
-            atualizarCarrinho();
-            if (navigator.vibrate) navigator.vibrate(50);
-           }
         }
 
         //persistencia do carrinho no localstorage e atualização da interface
@@ -628,76 +489,69 @@
             localStorage.setItem('haruy_carrinho', JSON.stringify(carrinho));
             atualizarInterfaceCart();
         }
-        function atualizarInterfaceCart(){
-            if(carrinho.length === 0){
+        function atualizarInterfaceCart() {
+            if (carrinho.length === 0) {
                 carrinhoFooter.classList.add('translate-y-full');
                 return;
             }
             const total = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
             const totalFormatado = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-            //Formata para a moeda Brasileira R$
+            //formata para a moeda brasileira R$
             carrinhoTotalSpan.innerText = totalFormatado;
             modalTotalSpan.innerText = totalFormatado;
-            // Exibe a barra do carrinho (traz de volta pra tela)
+            //exibe a barra do carrinho (traz de volta pra tela)
             carrinhoFooter.classList.remove('translate-y-full');
-            //Renderiza a lista de itens dentro do Modal
+            //renderiza a lista de itens dentro do modal
             renderizarItensModal();
         }
-
-       //função para renderizar os itens do carrinho dentro do modal
-        function renderizarItensModal(){
+    
+        //função para renderizar os itens do carrinho dentro do modal
+        function renderizarItensModal() {
             if (!itensContainer) return;
             itensContainer.innerHTML = '';
             // para cada item no array, cria um HTML
             carrinho.forEach(item => {
                 const subTotal = (item.preco * item.quantidade).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-                const precoUnit = item.preco.toLocaleString
-                ('pt-BR', {style: 'currency', currency: 'BRL'});
-                const divItem=document.createElement('div');
-                divItem.className = "flex justify-between items-center border-b pb-4 mt-2";
+                const precoUnit = item.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                const divItem = document.createElement('div');
+                divItem.className = 'flex justify-between items-center border-b p-4 mt-2';
 
                 divItem.innerHTML = `
-                <div class="flex-1">
-                    <h4 class="font-bold text-lg text-dark">${item.nome}</h4>
-                    <p class="text-sm text-muted">${precoUnit}</p>
-                    <p class="text-bold text-primary mt-1">${subTotal}</p>
+                   <div class="flex-1">
+                    <h4 class = "font-bold text-lg text-dark">${item.nome}</h4>
+                    <p class="text-sm text-muted">${precoUnit} </p>
+                    <p class = "text-bold text-primary mt-1">${subTotal}</p>
                     </div>
 
                     <div class="flex items-center gap-3 bg-gray-100 p-2 rounded-xl">
-                        <button onclick="diminuirQuantidade('${item.id}')"
-                        class="w-8 h-8 flex justify-center items-center bg-white rounded-lg
-                        font-bold text-xl shadow-sm hover:text-primary
-                        active: scale-95 transition-all">-</button>
+                        <button onclick="diminuirQuantidade('${item.id}')" class="w-8 h-8 flex justify-center items-center bg-white rounded-lg font-bold text-xl shadow-sm hover:text-primary active:scale-95 transition-all">-</button>
                         <span class="font-bold text-lg w-4 text-center">${item.quantidade}</span>
-                        <button onclick="aumentarQuantidade('${item.id}')" class="w-8 h-8
-                        flex justify-center items-center bg-white rounded-lg font-bold
-                        text-xl shadow-sm hover:text-primary active:scale-95
-                        transition-all">+</button>
+                        <button onclick="aumentarQuantidade('${item.id}')" class="w-8 h-8 flex justify-center items-center bg-white rounded-lg font-bold text-xl shadow-sm hover:text-primary active:scale-95" transition-all">+</button>
+                    </div>
+
                 `;
                 itensContainer.appendChild(divItem);
             })
         }
-                
-        //fechar pedido (Geolocalização API - GPS)
-        function fecharPedido(){
+
+        //fechar pedido (gps - api)
+        function fecharPedido() {
             if (carrinho.length === 0) {
                 const btnPedido = document.getElementById('btn-fechar-pedido');
-                if (!btnPedido) return
+                if (!btnPedido) return;
 
                 const btnOriginalText = btnPedido.innerText;
                 btnPedido.innerText = 'Buscando localização...';
 
                 navigator.geolocation.getCurrentPosition(
                     //callback de sucesso
-                    (position) => {
-                        const lat = position.coords.latitude;
-                        const lng = position.coords.longitude;
+                    (posicao) => {
+                        const lat = posicao.coords.latitude;
+                        const lon = posicao.coords.longitude;
 
                         btnPedido.innerText = btnOriginalText;
 
-                        alert(`Pedido Fechado com Sucesso!
-                        \nSua Localização: ${lat.toFixed(4)}, ${lng.toFixed(4)}
-                        \nOs dados do carrinho serão limpos`)
+                        alert(`Pedido fechado! \nSua localização: ${lat.toFixed(4)}, ${lon.toFixed(4)}\nOs dados do carrinho serão limpos`);
 
                         carrinho = [];
                         fecharModalCarrinho();
@@ -706,14 +560,15 @@
                     //callback de erro
                     (erro) => {
                         btnPedido.innerText = btnOriginalText;
-                        alert("Não foi possível obter sua localização")
+                        console.error(erro);
+                        alert('Não foi possível obter sua localização.');
                         carrinho = [];
                         fecharModalCarrinho();
                         atualizarCarrinho();
                     }
-                )
-            } else {
-                alert(`Pedido Fechado com Sucesso!\n(navegador sem suporte GPS`)
+                );
+            }else{
+                alert(`Pedido fechado com sucesso! \n(navegador sem suporte GPS)`);
                 carrinho = [];
                 fecharModalCarrinho();
                 atualizarCarrinho();
@@ -723,9 +578,6 @@
 
     </script>
 
-
 </body>
-
-
 
 </html>
