@@ -120,7 +120,7 @@
     </section>
 
     <script>
-        const API_URL = 'https://aula-7-backend-vercel-six.vercel.app/api';
+        const API_URL = 'http://localhost:3000/api';
         const navCategorias = document.getElementById('nav-categorias');
         const listaProdutos = document.getElementById('lista-produtos');
         const categoriaTitulo = document.getElementById('categorias-titulo');
@@ -194,7 +194,7 @@
             }
             produtos.forEach(p => {
                 const precoFormatado = p.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-                const imgSource = (p.imagem && p.imagem.start.startsWith('http'))
+                const imgSource = (p.imagem && p.imagem.startsWith('http'))
                 ? p.imagem
                 : `./img/${p.imagem || 'logo.png'}`;
                 const card = document.createElement('div');
@@ -384,7 +384,7 @@
                 const deltaY = Math.abs(endY - startY);
                 //logica matematica se moveu menos de 10px = clique intencional
                 if (deltaX < 10 && deltaY < 10) {
-                    mudarCategoria(btn.database.cat);
+                    mudarCategoria(btn.dataset.cat);
                 }
             });
             //touchcancel se o celular aparecer uma ligação ou notificação popup
@@ -443,8 +443,8 @@
         const itensContainer = document.getElementById('carrinho-itens-container');
         const modalTotalSpan = document.getElementById('modal-carrinho-total');
         //verifica se o carrinho ja tem itens salvos no localstorage
-        function inicilarCarrinho() {
-            const carrinhoSalvo = localStorge.getItem('haruy_carrinho');
+        function inicializarCarrinho() {
+            const carrinhoSalvo = localStorage.getItem('haruy_carrinho');
             if (carrinhoSalvo) {
                 //se existir algo salvo converte de volta para array e atualiza o carrinho
                 carrinho = JSON.parse(carrinhoSalvo);
