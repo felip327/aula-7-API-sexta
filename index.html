@@ -7,7 +7,21 @@
     <title>Haruy Sushi</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/apple/81/sushi_1f363.png">
+   
+    <!-- config pwa -->
+     <link rel="stylesheet" href="manifest.json">
+     <meta name="theme-color" content="#ca3c3f">
+     <meta name="apple-mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+     <link rel="apple-touch-icon" href="assets/images/logopwa.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logopwa.png">
+     <link rel="stylesheet" type="image/png" sizes="16x16" href="assets/images/logopwa.png">
+     <link rel="stylesheet" type="image/png" href="assets/images/logopwa.png">
+     <link rel="shortcut icon" href="assets/images/logopwa.png" type="image/x-icon">
+     <meta name="msappaplication-TileImage" content="assets/img/logopwa.png">
+     <meta property="og:image" content="assets/img/logopwa.png">
+     <!-- termino -->
+
     <script>
         tailwind.config = {
             theme: {
@@ -607,6 +621,14 @@
             }
         }
         inicializarCarrinho();
+
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registrado no Porto! 🍣', reg))
+                .catch(err => console.error('Erro ao preparar o sushi: ', err));
+            });
+        }
 
     </script>
 
