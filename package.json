@@ -1,12 +1,12 @@
 {
-  "name": "aula-7-api-sexta-main",
+  "name": "aula-07-consumo-de-api-main",
   "version": "1.0.0",
-  "description": "",
-  "main": "sw.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
